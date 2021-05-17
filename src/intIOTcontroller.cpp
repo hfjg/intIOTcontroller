@@ -26,9 +26,6 @@ void intIOTcontroller::setup(eControllerType t, uint8_t inverted, int16_t kp, in
       _kp = kp; _ki = ki; _kd = kd; 
     }
 
-void intIOTcontroller::setLockup(int32_t lockup){
-      _lockup = lockup;
-    }
 
 void intIOTcontroller::run(void){
       switch(_type){
@@ -53,8 +50,14 @@ void intIOTcontroller::run(void){
 
             _output = 
                 (_dev * _kp + _esum * _ki + (_dev-_devOld)*_kd)/100;
-                
-            _devOld = _dev;
+                        _devOld = _dev;
+            // limit output
+            if (_output > _outMax) 
+                _output = _outMax;
+            else if (_output < _outMin)
+                _output = _outMin;
+
+
           break;
           
         default:
@@ -73,6 +76,16 @@ int16_t intIOTcontroller::getSetpoint(void){
 
 void intIOTcontroller::setProcessValue(int16_t procVal){
   _processValue = procVal;
+}
+int16_t intIOTcontroller::getProcessValue(void){
+  return _processValue;
+}
+
+void intIOTcontroller::setLockup(int32_t lockup){
+  _lockup = lockup;
+}
+int32_t intIOTcontroller::getLockup(void){
+  return _lockup;
 }
 
 int16_t intIOTcontroller::getOutput(void){
