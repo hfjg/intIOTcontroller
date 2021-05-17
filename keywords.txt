@@ -1,0 +1,32 @@
+#######################################
+# Syntax Coloring Map For Blink
+#######################################
+ 
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+ 
+intIOTcontroller KEYWORD1
+ 
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+ 
+setSetpoint KEYWORD2
+setLockup KEYWORD2
+setOutputMin KEYWORD2
+setOutputMax KEYWORD2
+setSetpoint KEYWORD2
+getSetpoint KEYWORD2
+setProcessValue KEYWORD2
+getOutput KEYWORD2
+run KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+CON_SWITCHING LITERAL1   
+CON_PID LITERAL1    
+
+
+
