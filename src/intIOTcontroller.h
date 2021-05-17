@@ -12,6 +12,7 @@ class intIOTcontroller {
     void setup(eControllerType t, uint8_t inverted, int16_t kp, int16_t ki, int16_t kd );
 
     void setLockup(int32_t lockup);
+    int32_t getLockup(void);
 
     void setOutputMin(uint16_t omin){_outMin = omin;}
     void setOutputMax(uint16_t omax){_outMax = omax;}
@@ -19,6 +20,7 @@ class intIOTcontroller {
     void setSetpoint(int16_t setpoint);
     int16_t getSetpoint(void);
     void setProcessValue(int16_t procVal);
+    int16_t getProcessValue(void);
     int16_t getOutput(void);
     
     void run(void);
